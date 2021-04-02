@@ -7,14 +7,14 @@ $capsule = new Manager;
 $db = require(__DIR__ . '/../config/database.php');
 
 $capsule->addConnection([
-    'driver'    => 'mysql',
+    'driver'    => $db['default']['driver'],
     'host'      => $db['default']['host'],
     'database'  => $db['default']['database'],
     'username'  => $db['default']['username'],
     'password'  => $db['default']['password'],
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
+    'charset'   => $db['default']['charset'],
+    'collation' => $db['default']['collation'],
+    'prefix'    => $db['default']['prefix'],
 ]);
 
 $capsule->setAsGlobal();
